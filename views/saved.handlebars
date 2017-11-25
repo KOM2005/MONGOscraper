@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Saved stories</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="/">Home</a></li>
+			<li><a href="/savedStories">Saved stories</a></li>
+		</ul>
+	</div>
+</nav>
+
+<div class="jumbotron">
+	<h1>Saved articles</h1>
+	<p>Your saved articles</p>
+</div>
+
+<div class="container-fluid article-container">
+	{{#each stories}}
+	<div class="panel panel-default" id="{{_id}}">
+		<div class="panel-heading">
+			<h2>
+				<a class="story-link" target="_blank" href="{{link}}">{{title}}</a>
+				<a class="btn btn-danger delete">Delete from saved</a>
+				<a class="btn btn-success notes" data-toggle="modal" data-target="#myModal">Story notes</a>
+			</h2>
+		</div>
+		<div class="panel-body">{{summary}}</div>
+	</div>
+	{{/each}}
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id=""></h4>
+      </div>
+      <div class="modal-body">
+      	<textarea placeholder="New note" rows="4" cols="60"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success savenote" data-dismiss="modal">Save note</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="/assets/js/saved.js"></script>

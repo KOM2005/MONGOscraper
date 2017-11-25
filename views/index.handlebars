@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Stories scraper</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="/">Home</a></li>
+			<li><a href="/savedStories">Saved stories</a></li>
+			<li><a class="btn btn-danger" id="scrapeStories" data-toggle="modal" data-target="#myModal">Scrape new stories!</a></li>
+		</ul>
+	</div>
+</nav>
+
+
+<div class="jumbotron">
+	<h1>Mongo scraper</h1>
+	<p>Fox News in the WORLD</p>
+</div>
+
+<div class="container-fluid article-container">
+{{#if stories.length}}
+ {{#each stories}}
+	<div class="panel panel-default" id="{{_id}}">
+		<div class="panel-heading">
+			<h2>
+				<a class="story-link" target="_blank" href="{{link}}">{{title}}</a>
+				<a class="btn btn-success save">Save</a>
+			</h2>
+		</div>
+		<div class="panel-body">{{summary}}</div>
+	</div>
+  {{/each}}
+{{else}}
+	<h1>No any stories yet</h1>
+{{/if}}
+</div>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Stories have been scraped</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="/assets/js/index.js"></script>
