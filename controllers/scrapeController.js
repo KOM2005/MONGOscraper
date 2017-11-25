@@ -9,7 +9,7 @@ var db = require("../models");
 mongoose.Promise = Promise;
 
 if (process.env.MONGODB_URI) {
-	mongoose.connect('mongodb://heroku_nvv6zdfj:cftgc0bml3hb889empv616l9rj@ds119476.mlab.com:19476/heroku_nvv6zdfj')
+	mongoose.connect('mongodb://heroku_sl4hcv38:eqv77e1utn5mne7mgj8b920ujd@ds121696.mlab.com:21696/heroku_sl4hcv38')
 } else {
 	mongoose.connect('mongodb://localhost/storiesPopulator');
 }
