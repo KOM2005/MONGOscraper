@@ -7,9 +7,12 @@ var router = express.Router();
 
 var db = require("../models");
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/storiesPopulator", {
-  useMongoClient: true
-});
+if (process.env.MONGODB_URI) {
+	mongoose.connect('mongodb://heroku_sl4hcv38:eqv77e1utn5mne7mgj8b920ujd@ds121696.mlab.com:21696/heroku_sl4hcv38')
+} else {
+	mongoose.connect('mongodb://localhost/storiesPopulator');
+}
+
 
 
 db.Temp.remove({}).exec();
